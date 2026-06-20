@@ -10,13 +10,13 @@ B.Tech Computer Science student (Graduating 2028) focused on finding high-impact
 
 ## Selected Findings
 
-| Protocol              | Severity | Key Issue                              | Impact                              | Status              | Link |
-|-----------------------|----------|----------------------------------------|-------------------------------------|---------------------|------|
-| **Firedancer**        | Critical | Zero-click OOB write in gossip deserializer + cross-tile sandbox escape | Potential validator compromise     | Private (GHSA)      | [Research](https://github.com/Tejanadh/firedancer-gossip-rce-research) |
-| **Hyperbridge**       | Critical | Cross-chain signature replay + token inflation | Arbitrary minting                   | Reported            | [Repo](https://github.com/Tejanadh/hyperbridge-security-research) |
-| **Symbiotic**         | Critical | Phantom debt in shared vaults (BaseSlasher) | Breaking slashing guarantees       | Reported            | [Repo](https://github.com/Tejanadh/symbiotic-critical-research) |
-| **Kamino Finance**    | Critical | Oracle timestamp bypass                | $100M+ JLP collateral at risk      | Reported            | [Repo](https://github.com/Tejanadh/kamino-security-research) |
-| **ERC-4337 EntryPoint** | Critical | Gas accounting flaw in postOp          | Paymaster stake drain              | Reported            | [Repo](https://github.com/Tejanadh/entrypoint-poc) |
+| Protocol              | Severity | Key Issue                                      | Impact                              | Status          | Link |
+|-----------------------|----------|------------------------------------------------|-------------------------------------|-----------------|------|
+| **Firedancer**        | Critical | Zero-click OOB write in gossip deserializer + cross-tile sandbox escape | Potential validator compromise     | Private (GHSA)  | [Research](https://github.com/Tejanadh/firedancer-gossip-rce-research) |
+| **Kamino Finance**    | Critical | Oracle timestamp bypass                       | $100M+ JLP collateral at risk      | Reported        | [Repo](https://github.com/Tejanadh/kamino-security-research) |
+| **ERC-4337 EntryPoint** | Critical | Gas accounting flaw in postOp                 | Paymaster stake drain               | Reported        | [Repo](https://github.com/Tejanadh/entrypoint-poc) |
+| **Hyperbridge**       | High     | Cross-chain signature replay + token inflation | Arbitrary minting                   | Reported        | [Repo](https://github.com/Tejanadh/hyperbridge-security-research) |
+| **Symbiotic**         | High     | Phantom debt in shared vaults (BaseSlasher)   | Breaking slashing guarantees       | Reported        | [Repo](https://github.com/Tejanadh/symbiotic-critical-research) |
 
 ---
 
