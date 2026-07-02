@@ -17,6 +17,7 @@ B.Tech Computer Science student (Graduating 2028) focused on finding high-impact
 | **ERC-4337 EntryPoint** | Critical | Gas accounting flaw in postOp                 | Paymaster stake drain               | Reported        | [Repo](https://github.com/Tejanadh/entrypoint-poc) |
 | **Hyperbridge**       | High     | Cross-chain signature replay + token inflation | Arbitrary minting                   | Reported        | [Repo](https://github.com/Tejanadh/hyperbridge-security-research) |
 | **Symbiotic**         | High     | Phantom debt in shared vaults (BaseSlasher)   | Breaking slashing guarantees       | Reported        | [Repo](https://github.com/Tejanadh/symbiotic-critical-research) |
+| **EigenDA**           | Research | `confirmBatch` header-trust seam, cert/orbit census | 59+ fork PoCs; no Critical on production paths | Closed          | [Repo](https://github.com/Tejanadh/eigenda-security-research) |
 
 ---
 
