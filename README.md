@@ -2,36 +2,38 @@
 
 **Smart Contract Security Researcher | Solana + Ethereum**
 
-Independent researcher specializing in low-level systems (Rust/Solana) and complex DeFi protocols (Solidity). I build deterministic PoCs on mainnet forks and work with core teams on fixes.
+Independent researcher focused on low-level systems (Rust/Solana) and DeFi protocols (Solidity). I build deterministic PoCs, verify claims on live RPC / mainnet forks, and prefer honest severity over inflated Crits.
 
 [Twitter](https://x.com/TEJANadh10) · [LinkedIn](https://linkedin.com/in/teja-nadh-2919062b4) · [Email](mailto:tejanadh927@gmail.com)
 
 ---
 
-## Selected Findings & PoCs
+## Selected findings (honest severity)
 
-| Protocol | Severity | Finding | Impact | PoC |
-|----------|----------|---------|--------|-----|
-| **Kamino Finance** | Critical | Oracle timestamp liveness bypass | $100M+ JLP collateral at risk | [Repo](https://github.com/Tejanadh/kamino-security-research) |
-| **ERC-4337 EntryPoint v0.8** | Critical | Gas accounting flaw in `postOp` | Paymaster stake drain (~$2.8M TVL at risk) | [Repo](https://github.com/Tejanadh/entrypoint-poc) |
-| **Symbiotic BaseSlasher** | High / Critical | Phantom debt creation in shared vaults | Breaks slashing guarantees (live at report) | [Repo](https://github.com/Tejanadh/symbiotic-critical-research) |
-| **Hyperbridge** | Critical / High | Token inflation (`10¹²×`) + cross-chain signature replay | Arbitrary minting / replay across chains | [Repo](https://github.com/Tejanadh/hyperbridge-security-research) |
-| **1inch Solana** | High | `rescue_funds` bypass | Unauthorized fund recovery path | [Repo](https://github.com/Tejanadh/1inch-solana-rescue-theft-research) |
-| **DEXE Governance** | High | Double-voting power escalation | Governance power inflation | [Repo](https://github.com/Tejanadh/dexe-gov-bug-report) |
-| **Jupiter Lend** | High | Oracle staleness asymmetry | Users locked out while liquidations continue | [Repo](https://github.com/Tejanadh/jupiter-lend-oracle-asymmetry) |
-| **Ethena Minting V2** | High | Nonce truncation collision DoS | Permanent mint/redeem DoS for affected nonces | [Repo](https://github.com/Tejanadh/ethena-nonce-truncation-dos) |
-| **EigenDA** | Research | `confirmBatch` header-trust + cert/orbit census | 59+ fork PoCs; production paths fail-closed | [Repo](https://github.com/Tejanadh/eigenda-security-research) |
+Severities below are **research framing**, not bounty payout decisions. Links go to public writeups / PoCs.
 
-> Additional private disclosures under coordinated / bounty programs (not public until allowed).
+| Protocol | Severity | Finding | What is proven | PoC / writeup |
+|----------|----------|---------|----------------|---------------|
+| **Kamino / Scope** | **High** | Derived oracles (JLP, Jito VRT) stamp `DatedPrice` with refresh-time `Clock`, not source observation time — defeats KLend age checks after permissionless refresh | Public Scope + KLend source; live RPC vault slot lag | [Repo](https://github.com/Tejanadh/kamino-security-research) |
+| **DEXE Governance** | **High** | `delegateTokens` missing `ifNotStaken` while stake/withdraw enforce it → stake + delegate double-use of voting power | Source modifier gap + Hardhat path | [Repo](https://github.com/Tejanadh/dexe-gov-bug-report) |
+| **Symbiotic BaseSlasher** | **High** | Slash path ignores `Vault.onSlash` return → phantom cumulative slash / shared-vault accounting desync | Foundry-style accounting repro; disclosed (disputed path) | [Repo](https://github.com/Tejanadh/symbiotic-critical-research) |
+| **1inch Solana** | **High (privileged)** | `rescue_funds_for_order` path issues after order close (delay / recipient) | Anchor-style PoC; **requires whitelisted resolver**, not arbitrary caller | [Repo](https://github.com/Tejanadh/1inch-solana-rescue-theft-research) |
+| **Jupiter Lend** | **Medium–High (design risk)** | Asymmetric oracle max-age: user ops fail at 600s while liquidations continue to 7200s | Program constants + fork scripts; may be intentional | [Repo](https://github.com/Tejanadh/jupiter-lend-oracle-asymmetry) |
+| **Ethena Minting V2** | **Latent / Medium** | `verifyNonce` truncates `uint128` → `uint64` for bitmap slot; `N` and `N+2^64` collide | Live `verifyNonce` collision; **not currently exploitable at observed nonce scale** | [Repo](https://github.com/Tejanadh/ethena-nonce-truncation-dos) |
+| **ERC-4337 EntryPoint** | **Research / Low–Medium** | postOp OOG / gas accounting edge cases vs `paymasterPostOpGasLimit` | Foundry tests; **not framed as multi‑million clean drain** — real paymasters often constrain `paymasterAndData` | [Repo](https://github.com/Tejanadh/entrypoint-poc) |
+| **Hyperbridge** | **Research (unverified on prod path)** | Decimal scaling / replay / fee / timeout hypotheses | Offline logic sims — **not claimed as confirmed production Crits** | [Repo](https://github.com/Tejanadh/hyperbridge-security-research) |
+| **EigenDA** | **Research (no Critical)** | `confirmBatch` header-trust seam + cert/orbit census | 59+ fork tests; production paths fail-closed / mitigated in known consumers | [Repo](https://github.com/Tejanadh/eigenda-security-research) |
+
+> Additional work may be under private coordinated disclosure / bounty programs and is not listed until publication is allowed.
 
 ---
 
-## What I bring
+## How I work
 
-- **Rust (Solana)** + **Solidity (EVM)** — end-to-end exploit reasoning, not just tool output
-- **Deterministic PoCs** on mainnet forks: Foundry, Anchor, `solana-test-validator`
-- **Focus areas:** oracles & liveness, gas accounting, cross-chain messaging, liquidation/margin math, governance edge cases
-- **Process:** root-cause writeups, impact quantification, fix collaboration with protocol teams
+- **Root cause first** — source line + invariant, not tool spam  
+- **Honest PoCs** — live RPC / fork tests; no staged “exploit success” logs  
+- **Severity discipline** — privilege, reachability, and current exploitability stated up front  
+- **Stack:** Rust (Solana), Solidity, Foundry, Anchor, Hardhat, mainnet forks  
 
 ---
 
@@ -40,17 +42,17 @@ Independent researcher specializing in low-level systems (Rust/Solana) and compl
 | Area | Stack |
 |------|--------|
 | Languages | Rust, Solidity, C |
-| Tooling | Foundry, Anchor, Hardhat, solana-test-validator, Echidna, GDB |
-| Domains | DeFi (lending, perps, restaking), AA / ERC-4337, bridges, Solana programs |
+| Tooling | Foundry, Anchor, Hardhat, solana-test-validator, Echidna |
+| Domains | Oracles & liveness, lending/liquidation, restaking, governance, AA / ERC-4337, bridges |
 
 ---
 
 ## About
 
-B.Tech Computer Science (graduating 2028). ~2 years independent smart contract security research with multiple high/critical findings across production Solana and Ethereum protocols.
+B.Tech Computer Science (graduating 2028). ~2 years independent smart contract security research across Solana and Ethereum.
 
-**Open to:** remote Smart Contract Security Researcher / Auditor roles — full-time, part-time, or internship — with top-tier audit firms and protocols.
+**Open to:** remote Smart Contract Security Researcher / Auditor roles — full-time, part-time, or internship — with audit firms and protocols that care about rigorous, reproducible work.
 
 ---
 
-*Responsible disclosure first. Public PoCs are only for issues already reported (and, where required, approved for publication).*
+*Responsible disclosure first. Public material is only for issues already reported or explicitly safe to publish.*
