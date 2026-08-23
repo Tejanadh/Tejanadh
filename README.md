@@ -49,7 +49,7 @@ Severities below are **research framing**, not bounty payout decisions. Links go
 
 ## About
 
-B.Tech Computer Science (graduating 2028). ~2 years independent smart contract security research across Solana and Ethereum.
+B.Tech Computer Science ~2 years independent smart contract security research across Solana and Ethereum.
 
 **Open to:** remote Smart Contract Security Researcher / Auditor roles — full-time, part-time, or internship — with audit firms and protocols that care about rigorous, reproducible work.
 
