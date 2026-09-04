@@ -91,10 +91,4 @@ B.Tech Computer Science · ~2 years of independent smart contract security resea
 
 **Open to:** remote **Smart Contract Security Researcher / Auditor** roles — full-time, part-time, or internship — with audit firms and protocols that value rigorous, reproducible work.
 
----
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tejanadh&layout=compact&langs_count=8&hide_border=true&theme=vue&exclude_repo=firedancer,scope,account-abstraction,ube,DeXe-Protocol,30-Days-of-C,project-based-learning" alt="Top languages" />
-</p>
-
 <sub>Responsible disclosure first. Public material covers only issues already reported or explicitly safe to publish.</sub>
