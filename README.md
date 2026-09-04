@@ -23,6 +23,10 @@ Independent researcher focused on **low-level systems (Rust / Solana)** and **De
   <a href="mailto:tejanadh927@gmail.com">Email</a>
 </p>
 
+<p align="center">
+  📂 <b><a href="https://github.com/Tejanadh/audit-portfolio">Full audit portfolio & findings index →</a></b>
+</p>
+
 ---
 
 ## 🔬 Currently
@@ -54,6 +58,14 @@ Independent researcher focused on **low-level systems (Rust / Solana)** and **De
 
 ---
 
+## 🏅 Recognition & disclosures
+
+- **Symbiotic** — accounting-desync finding **responsibly disclosed via Cantina (#292)**.
+- **ERC-4337 EntryPoint** — reproduced an EIP-spec-violating paymaster overcharge with a **fix PR**, cross-checked against the **Safe 4337 Module**.
+- Active in **Immunefi audit competitions** and **private coordinated-disclosure** programs (embargoed findings published once results are public).
+
+---
+
 ## 🧭 How I work
 
 - **Root cause first** — the source line and the broken invariant, not tool spam.
@@ -78,5 +90,11 @@ Independent researcher focused on **low-level systems (Rust / Solana)** and **De
 B.Tech Computer Science · ~2 years of independent smart contract security research across Solana and Ethereum.
 
 **Open to:** remote **Smart Contract Security Researcher / Auditor** roles — full-time, part-time, or internship — with audit firms and protocols that value rigorous, reproducible work.
+
+---
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tejanadh&layout=compact&langs_count=8&hide_border=true&theme=vue&exclude_repo=firedancer,scope,account-abstraction,ube,DeXe-Protocol,30-Days-of-C,project-based-learning" alt="Top languages" />
+</p>
 
 <sub>Responsible disclosure first. Public material covers only issues already reported or explicitly safe to publish.</sub>
